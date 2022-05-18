@@ -6,7 +6,7 @@ import { getNextTick, getPercentage } from './helpers';
 
 export const Ticker: React.FC<TickerProps> = ({ children, duration, valuePerTick, currency }) => {
   const id = uuid();
-  const [nextTick, setNextTick] = useState<Date>();
+  const [nextTick, setNextTick] = useState<Date>(getNextTick(duration));
   const [initalizing, setInitializing] = useState<boolean>(true);
   const [percentage, setPercentage] = useState<number>(0);
   const [loop, setLoop] = useState<NodeJS.Timer>();
@@ -70,7 +70,7 @@ export const Ticker: React.FC<TickerProps> = ({ children, duration, valuePerTick
   }, [nextTick, initalizing]);
 
   if (initalizing) {
-    return;
+    return (<></>);
   }
 
   return (
