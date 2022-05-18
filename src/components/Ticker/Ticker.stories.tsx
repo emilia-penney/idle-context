@@ -21,7 +21,9 @@ export default {
 
 export const Primary: React.FC = () => {
   return (
-    <CurrencyContextProvider>
+    <CurrencyContextProvider currencies={{
+      main: 0,
+    }}>
       <Ticker duration={5} valuePerTick={1} speedMultiplier={1} currency='main'>
         <TestComp />
       </Ticker>

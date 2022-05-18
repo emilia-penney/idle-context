@@ -1,5 +1,10 @@
-export interface CurrentContextI {
+import { FCChildren } from './react';
+
+export interface CurrencyContextI {
   currencies: { [key: string]: number; }
-  addCurrency: (name: string, amount: number) => void;
   updateCurrency: (name: string, amount: number) => void;
+}
+
+export interface CurrencyContextProps extends FCChildren {
+  currencies: { [key: string]: number; }
 }
