@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { TickerProps, TickerOutput } from '../../types/';
-import { CurrentContext } from '../CurrencyContext/CurrencyContext';
+import { CurrencyContext } from '../CurrencyContext';
 import { getNextTick, getPercentage } from './helpers';
 
 export const Ticker: React.FC<TickerProps> = ({ children, duration, valuePerTick, currency }) => {
@@ -11,7 +11,7 @@ export const Ticker: React.FC<TickerProps> = ({ children, duration, valuePerTick
   const [percentage, setPercentage] = useState<number>(0);
   const [loop, setLoop] = useState<NodeJS.Timer>();
 
-  const { updateCurrency } = useContext(CurrentContext);
+  const { updateCurrency } = useContext(CurrencyContext);
 
   const onTick = () => {
     return new Promise((resolve) => {
