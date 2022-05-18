@@ -8,3 +8,8 @@ export interface CurrencyContextI {
 export interface CurrencyContextProps extends FCChildren {
   currencies: { [key: string]: number; }
 }
+
+export interface CurrencyChange {
+  name: string;
+  amount: number;
+}
