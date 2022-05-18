@@ -1,7 +1,7 @@
 {
   "name": "react-idle",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.ts",
   "repository": "git@github.com:emilia-penney/idle-context.git",
   "author": "Emilia Penney <elijahpenney@outlook.com>",
   "license": "MIT",
@@ -9,7 +9,8 @@
     "lint": "eslint --fix \"./src/**/*\" --ext .js --ext .jsx --ext .ts --ext .tsx",
     "lint:no-fix": "eslint \"./src/**/*\" --ext .js --ext .jsx --ext .ts --ext .tsx",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": ".\\node_modules\\.bin\\tsc --project tsconfig.build.json"
   },
   "devDependencies": {
     "@babel/core": "^7.17.12",
