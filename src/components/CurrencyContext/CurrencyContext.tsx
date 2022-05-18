@@ -5,10 +5,13 @@ import { CurrentContextI } from './types';
 export const CurrentContext = createContext<CurrentContextI>({
   currencies: {},
   addCurrency: () => true,
+  updateCurrency: () => true,
 });
 
 export const CurrencyContextProvider: React.FC<FCChildren> = ({ children }) => {
-  const [currencies, setCurrencies] = useState({});
+  const [currencies, setCurrencies] = useState({
+    main: 0,
+  });
 
   /**
    * Creates a new currency in the currency context and returns a boolean of it was successful
@@ -18,12 +21,25 @@ export const CurrencyContextProvider: React.FC<FCChildren> = ({ children }) => {
    */
   const addCurrency = (name: string, amount: number) => {
     if (currencies[name]) {
-      // eslint-disable-next-line no-console
-      console.error(`Attempted to register currency ${name} but a currency with that name already exists`);
-      return false;
+      throw new Error(`Attempted to register currency ${name} but a currency with that name already exists`);
     }
 
     const newCurrencies = { ...currencies, name: amount };
+    setCurrencies(newCurrencies);
+    return true;
+  };
+
+  const updateCurrency = (name: string, amount: number) => {
+    if (amount === 0) {
+      return true;
+    }
+
+    if (currencies?.[name] === undefined) {
+      throw new Error(`Attempted to update ${name} currency but currency does not exist`);
+    }
+
+    const newCurrencies = { ...currencies };
+    newCurrencies[name] = newCurrencies[name] + amount;
     setCurrencies(newCurrencies);
     return true;
   };
@@ -32,6 +48,7 @@ export const CurrencyContextProvider: React.FC<FCChildren> = ({ children }) => {
     <CurrentContext.Provider value={{
       currencies,
       addCurrency,
+      updateCurrency,
     }}>
       {children}
     </CurrentContext.Provider>
