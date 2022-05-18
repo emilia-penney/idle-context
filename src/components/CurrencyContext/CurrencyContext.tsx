@@ -9,9 +9,7 @@ export const CurrentContext = createContext<CurrentContextI>({
 });
 
 export const CurrencyContextProvider: React.FC<FCChildren> = ({ children }) => {
-  const [currencies, setCurrencies] = useState({
-    main: 0,
-  });
+  const [currencies, setCurrencies] = useState({});
 
   /**
    * Creates a new currency in the currency context and returns a boolean of it was successful
@@ -19,7 +17,7 @@ export const CurrencyContextProvider: React.FC<FCChildren> = ({ children }) => {
    * @param amount The amount the currency should start with
    * @returns A boolean for if the currency was successfully created
    */
-  const addCurrency = (name: string, amount: number) => {
+  const addCurrency: CurrentContextI['addCurrency'] = (name, amount) => {
     if (currencies[name]) {
       throw new Error(`Attempted to register currency ${name} but a currency with that name already exists`);
     }
@@ -29,7 +27,7 @@ export const CurrencyContextProvider: React.FC<FCChildren> = ({ children }) => {
     return true;
   };
 
-  const updateCurrency = (name: string, amount: number) => {
+  const updateCurrency: CurrentContextI['updateCurrency'] = (name, amount) => {
     if (amount === 0) {
       return true;
     }
