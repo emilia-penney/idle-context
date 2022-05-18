@@ -1,6 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { FCChildren } from '../../types';
-import { CurrentContextI } from './types';
+import { FCChildren, CurrentContextI } from '../../types';
 
 export const CurrentContext = createContext<CurrentContextI>({
   currencies: {},
