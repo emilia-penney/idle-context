@@ -1,15 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { FCChildren } from '../../types';
+import { TickerProps, TickerOutput } from '../../types/';
 import { CurrentContext } from '../CurrencyContext/CurrencyContext';
 import { getNextTick, getPercentage } from './helpers';
-
-interface TickerProps extends FCChildren {
-  duration: number;
-  valuePerTick: number;
-  currency: string;
-  speedMultiplier: number;
-}
 
 export const Ticker: React.FC<TickerProps> = ({ children, duration, valuePerTick, currency }) => {
   const id = uuid();
@@ -80,14 +73,13 @@ export const Ticker: React.FC<TickerProps> = ({ children, duration, valuePerTick
     return;
   }
 
-  // TODO: Update the "any" below to props the ticker provides and extended
   return (
     <>
-      {React.cloneElement(children as React.ReactElement<any>, {
+      {React.cloneElement(children as React.ReactElement<TickerOutput>, {
         nextTick,
         percentage,
         duration,
-        tickerId: id,
+        id,
       })}
     </>
   );
