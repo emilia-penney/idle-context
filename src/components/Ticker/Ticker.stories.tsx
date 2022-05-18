@@ -24,7 +24,22 @@ export const Primary: React.FC = () => {
     <CurrencyContextProvider currencies={{
       main: 0,
     }}>
+      <Ticker duration={1} valuePerTick={1} speedMultiplier={1} currency='main'>
+        <TestComp />
+      </Ticker>
+      <Ticker duration={2} valuePerTick={1} speedMultiplier={1} currency='main'>
+        <TestComp />
+      </Ticker>
+      <Ticker duration={3} valuePerTick={1} speedMultiplier={1} currency='main'>
+        <TestComp />
+      </Ticker>
+      <Ticker duration={4} valuePerTick={1} speedMultiplier={1} currency='main'>
+        <TestComp />
+      </Ticker>
       <Ticker duration={5} valuePerTick={1} speedMultiplier={1} currency='main'>
+        <TestComp />
+      </Ticker>
+      <Ticker duration={6} valuePerTick={1} speedMultiplier={1} currency='main'>
         <TestComp />
       </Ticker>
     </CurrencyContextProvider>
