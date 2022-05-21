@@ -1,5 +1,5 @@
 {
-  "name": "react-idle",
+  "name": "react-idle-components",
   "version": "0.1.0",
   "main": "dist/index.js",
   "repository": "git@github.com:emilia-penney/react-idle.git",
@@ -17,7 +17,7 @@
     "build": "rimraf dist && .\\node_modules\\.bin\\tsc --project tsconfig.build.json && yarn build:package",
     "build:package": "node ./build-tools/build-package.js"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": "^18.1.0"
   },
   "devDependencies": {
