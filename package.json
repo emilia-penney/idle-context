@@ -14,7 +14,11 @@
     "lint:no-fix": "eslint \"./src/**/*\" --ext .js --ext .jsx --ext .ts --ext .tsx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "rimraf dist && .\\node_modules\\.bin\\tsc --project tsconfig.build.json"
+    "build": "rimraf dist && .\\node_modules\\.bin\\tsc --project tsconfig.build.json && yarn build:package",
+    "build:package": "node ./build-tools/build-package.js"
+  },
+  "peerDependencies": {
+    "react": "^18.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.12",
