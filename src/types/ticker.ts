@@ -4,12 +4,14 @@ export interface TickerProps extends FCChildren {
   duration: number;
   valuePerTick: number;
   currency: string;
-  speedMultiplier: number;
+  speedCalculation?: (level: number) => number;
+  level: number;
 }
 
 export interface TickerOutput {
   nextTick: Date,
   percentage: number;
   duration: number;
+  level: number;
   id: string;
 }
