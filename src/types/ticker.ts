@@ -9,9 +9,9 @@ export interface TickerProps extends FCChildren {
 }
 
 export interface TickerOutput {
-  nextTick: Date,
-  percentage: number;
-  duration: number;
-  level: number;
-  id: string;
+  nextTick?: Date,
+  percentage?: number;
+  duration?: number;
+  level?: number;
+  id?: string;
 }
