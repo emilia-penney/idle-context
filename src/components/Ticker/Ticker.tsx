@@ -81,6 +81,10 @@ export const Ticker: React.FC<TickerProps> = ({ children, duration, valuePerTick
   }, [nextTick, initalizing]);
 
   useEffect(() => {
+    if (level === 0) {
+      return;
+    }
+
     if (!speedCalculation) {
       setCalcDuration(calcDuration * 0.9);
       return;

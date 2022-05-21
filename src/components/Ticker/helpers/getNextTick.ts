@@ -5,8 +5,7 @@
  */
 export const getNextTick = (duration: number) => {
   const now = new Date();
-  const seconds = now.getSeconds() + 1;
-  const flooredSeconds = Math.ceil(seconds / duration) * duration;
-  now.setSeconds(flooredSeconds);
+  const seconds = now.getSeconds() + duration;
+  now.setSeconds(seconds);
   return now;
 };
