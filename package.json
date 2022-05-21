@@ -5,17 +5,14 @@
   "repository": "git@github.com:emilia-penney/react-idle.git",
   "author": "Emilia Penney <elijahpenney@outlook.com>",
   "license": "MIT",
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "scripts": {
     "lint": "eslint --fix \"./src/**/*\" --ext .js --ext .jsx --ext .ts --ext .tsx",
     "lint:no-fix": "eslint \"./src/**/*\" --ext .js --ext .jsx --ext .ts --ext .tsx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "rimraf dist && .\\node_modules\\.bin\\tsc --project tsconfig.build.json && yarn build:package",
-    "build:package": "node ./build-tools/build-package.js"
+    "build": "rimraf dist && .\\node_modules\\.bin\\tsc --project tsconfig.build.json && yarn build:package && yarn copy:readme",
+    "build:package": "node ./build-tools/build-package.js",
+    "copy:readme": "copyfiles README.md dist"
   },
   "dependencies": {
     "react": "^18.1.0"
@@ -33,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "babel-loader": "^8.2.5",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
