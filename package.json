@@ -15,7 +15,7 @@
     "build:package": "ts-node ./build-tools/build-package.ts",
     "copy:readme": "copyfiles README.md dist"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.1.0"
   },
   "devDependencies": {
