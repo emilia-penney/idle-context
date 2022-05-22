@@ -9,5 +9,3 @@ export const getNextTick = (duration: number) => {
   now.setMilliseconds(now.getMilliseconds() + durationInMilliseconds);
   return now;
 };
-
-getNextTick(4.5);
