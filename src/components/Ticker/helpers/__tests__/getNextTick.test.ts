@@ -1,4 +1,4 @@
-import { getNextTick } from './getNextTick';
+import { getNextTick } from '../getNextTick';
 
 describe('Get Next Tick', () => {
   const epoch = 1653189389;
