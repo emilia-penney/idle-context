@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const data = require('../package.json');
 
-data.main = './dist/cjs/index.js';
-data.module = './dist/esm/index.js';
-data.types = './dist/esm/index.d.ts';
+data.main = './cjs/index.js';
+data.module = './esm/index.js';
+data.types = './esm/index.d.ts';
 delete data.scripts;
 delete data.files;
 
