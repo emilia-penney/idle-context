@@ -5,7 +5,7 @@ import { TickerOutput } from '../../types';
 
 const TestComp: React.FC<TickerOutput> = ({percentage}) => {
   return (
-    <div>{percentage}</div>
+    <>{percentage}</>
   );
 };
 
@@ -19,22 +19,7 @@ export const Primary: React.FC = () => {
     <CurrencyContextProvider currencies={{
       main: 0,
     }}>
-      <Ticker duration={0.5} valuePerTick={1} level={0} currency='main'>
-        <TestComp />
-      </Ticker>
-      <Ticker duration={2} valuePerTick={1} level={0} currency='main'>
-        <TestComp />
-      </Ticker>
-      <Ticker duration={3} valuePerTick={1} level={0} currency='main'>
-        <TestComp />
-      </Ticker>
-      <Ticker duration={4} valuePerTick={1} level={0} currency='main'>
-        <TestComp />
-      </Ticker>
-      <Ticker duration={5} valuePerTick={1} level={0} currency='main'>
-        <TestComp />
-      </Ticker>
-      <Ticker duration={6} valuePerTick={1} level={0} currency='main'>
+      <Ticker duration={10} valuePerTick={1} level={0} currency='main'>
         <TestComp />
       </Ticker>
     </CurrencyContextProvider>

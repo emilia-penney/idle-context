@@ -21,7 +21,7 @@ import {CurrencyContextProvider, Ticker, TickerOutput} from 'react-idle-componen
 
 const VisualPercentage: React.FC<TickerOutput> = ({ percentage }) => {
   return (
-    <div>{percentage}</div>
+    <>{percentage}</>
   );
 };
 
