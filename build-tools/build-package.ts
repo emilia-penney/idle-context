@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const data = require('../package.json');
 
-data.main = 'index.js';
+data.main = 'src/index.js';
 delete data.scripts;
 delete data.files;
 

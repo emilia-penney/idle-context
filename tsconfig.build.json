@@ -4,6 +4,7 @@
     "src/**/*.spec.ts",
     "src/**/*.test.ts",
     "src/**/*.stories.tsx",
-    "src/**/*.stories.ts"
+    "src/**/*.stories.ts",
+    "build-tools"
   ]
 }
