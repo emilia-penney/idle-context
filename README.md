@@ -10,7 +10,31 @@ RIC is a component first solution to building idle games in ReactJS. It comes ou
 # Getting Started
 
 ## Installing
-|System | Command |
-|-|-|
-|npm | `npm i react-idle-components` |
-|yarn | `yarn add react-idle-components` |
+npm: `npm i react-idle-components`
+yarn:  `yarn add react-idle-components`
+
+## Basic Usage
+
+```tsx
+import React from 'react';
+import {CurrencyContextProvider, Ticker, TickerOutput} from 'react-idle-components';
+
+const VisualPercentage: React.FC<TickerOutput> = ({ percentage }) => {
+  return (
+    <div>{percentage}</div>
+  );
+};
+
+const ExampleComponent = () => {
+  return (
+    <CurrencyContextProvider currencies={{main: 0}}>
+      <Ticker duration={3} valuePerTick={5} level={0} currency='main'>
+        <VisualPercentage />
+      </Ticker>
+      <Ticker duration={5} valuePerTick={1} level={0} currency='main'>
+        <VisualPercentage />
+      </Ticker>
+    </CurrencyContextProvider>
+  );
+}
+```
