@@ -5,7 +5,9 @@
  */
 export const getNextTick = (duration: number) => {
   const now = new Date();
-  const seconds = now.getSeconds() + duration;
-  now.setSeconds(seconds);
+  const durationInMilliseconds = duration * 1000;
+  now.setMilliseconds(now.getMilliseconds() + durationInMilliseconds);
   return now;
 };
+
+getNextTick(4.5);

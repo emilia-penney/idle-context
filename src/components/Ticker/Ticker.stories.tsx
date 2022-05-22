@@ -19,7 +19,7 @@ export const Primary: React.FC = () => {
     <CurrencyContextProvider currencies={{
       main: 0,
     }}>
-      <Ticker duration={1} valuePerTick={1} level={0} currency='main'>
+      <Ticker duration={0.5} valuePerTick={1} level={0} currency='main'>
         <TestComp />
       </Ticker>
       <Ticker duration={2} valuePerTick={1} level={0} currency='main'>
