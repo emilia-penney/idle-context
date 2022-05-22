@@ -4,12 +4,12 @@
  * @param duration The duration used to calculate the offset till the next tick event
  * @returns A percentage of completion till the next tick event
  */
-export const getPercentage = (nextTick: Date, duration: number) => {
+export const getPercentage = (nextTick: Date, duration: number, now: Date = new Date()) => {
   if (!nextTick) {
     throw new Error('Attempted to get percentage but nextTick is not set');
   }
 
-  const nowTime = new Date().getTime();
+  const nowTime = now.getTime();
   const nextTickTime = nextTick.getTime();
 
   const diff = 1 - (((nextTickTime - nowTime) / 1000) / duration);
