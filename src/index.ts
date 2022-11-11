@@ -1,9 +1,2 @@
-import { TickerOutput } from './types';
-import { CurrencyContext, CurrencyContextProvider, Ticker } from './components';
-
-export {
-  TickerOutput,
-  Ticker,
-  CurrencyContext,
-  CurrencyContextProvider,
-};
+export * from './myFunction';
+export * from './myObject';
