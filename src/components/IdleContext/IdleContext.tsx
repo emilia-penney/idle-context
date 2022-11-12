@@ -4,12 +4,14 @@ interface IdleContextProps {
   currency: {
     [key: string]: number;
   };
-  createCurrency: (currency: string, amount: number) => void;
+  createCurrency: (currency: string) => void;
+  updateCurrency: (currency: string, amount: number) => void;
 }
 
 export const IdleContext = createContext<IdleContextProps>({
   currency: {},
   createCurrency: () => {},
+  updateCurrency: () => {},
 });
 
 interface IdleContextProviderProps {
@@ -17,9 +19,13 @@ interface IdleContextProviderProps {
 }
 
 export const IdleProvider: React.FC<IdleContextProviderProps> = ({ children }) => {
-  const [currency, setCurrency] = React.useState({});
+  const [currency, setCurrency] = React.useState<IdleContextProps['currency']>({});
 
-  const createCurrency = (name: string, amount: number) => {
+  const createCurrency = (name: string) => {
+    setCurrency((currency) => ({ ...currency, [name]: 0 }));
+  };
+
+  const updateCurrency = (name: string, amount: number) => {
     setCurrency((currency) => ({ ...currency, [name]: amount }));
   };
 
@@ -28,6 +34,7 @@ export const IdleProvider: React.FC<IdleContextProviderProps> = ({ children }) =
       value={{
         currency,
         createCurrency,
+        updateCurrency,
       }}
     >
       {children}
